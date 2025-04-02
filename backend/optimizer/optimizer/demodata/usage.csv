@@ -1,0 +1,4 @@
+Org_Name,Month,CPU_Usage,Memory_Usage,Storage_Usage_TB,Network_Usage_TB
+TechCorp,January,70,65,6.8,2.9
+TechCorp,February,75,67,7.2,3.0
+TechCorp,March,78,70,7.5,3.1

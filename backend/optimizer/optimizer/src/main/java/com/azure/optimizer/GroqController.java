@@ -1,9 +1,8 @@
 package com.azure.optimizer;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,12 +18,8 @@ public class GroqController {
     }
 
     @PostMapping("/analyze")
-    public ResponseEntity<Map<String, String>> analyzeInfrastructure(
-            @RequestParam("infraFile") MultipartFile infraFile,
-            @RequestParam("usageFile") MultipartFile usageFile,
-            @RequestParam("prompt") String prompt) {
-
-        String recommendations = groqService.processDataAndGetRecommendations(infraFile, usageFile, prompt);
+    public ResponseEntity<Map<String, String>> analyzeInfrastructure(@RequestParam("prompt") String prompt) {
+        String recommendations = groqService.processDataAndGetRecommendations(prompt);
 
         Map<String, String> response = new HashMap<>();
         response.put("recommendations", recommendations);
